@@ -1,4 +1,4 @@
-package edu.rachelpizane.formatacao;
+package edu.rachelpizane.formatacao.service;
 
 import org.springframework.stereotype.Service;
 
