@@ -1,9 +1,9 @@
 root = true
 
 [*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
+indent_style = space # Se usa espaços ou tabs.
+indent_size = 2 # Quantos espaços por nível (ex: 2 para seguir o Google Format).
+end_of_line = lf # Se usa LF (Unix) ou CRLF (Windows)
 charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+trim_trailing_whitespace = true # Remove espaços inúteis no fim das linhas.
+insert_final_newline = true #Garante que todo arquivo termine com uma linha em branco (padrão POSIX).
