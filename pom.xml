@@ -92,18 +92,14 @@
         <!-- Troque para versão mais recente -->
         <version>3.6.0</version>
         <configuration>
-          <installDecoration>true</installDecoration>
-          <copyAllHooks>true</copyAllHooks>
-          <hooks>
-            <!-- Mapeia o arquivo local para o hook correspondente do Git -->
-            <pre-commit>hooks/pre-commit</pre-commit>
-            <commit-msg>hooks/commit-msg</commit-msg>
-          </hooks>
+          <gitConfig>
+            <core.hooksPath>hooks/</core.hooksPath>
+          </gitConfig>
         </configuration>
         <executions>
           <execution>
             <goals>
-              <goal>install</goal>
+              <goal>configure</goal>
             </goals>
           </execution>
         </executions>
