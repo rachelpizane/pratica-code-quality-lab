@@ -1,0 +1,23 @@
+!/bin/bash
+set -e
+
+echo "[INFO] Checking code style and formatting..."
+
+# 1. Verifica se o código está formatado segundo o padrão Spotless/Google
+if ! mvn spotless:check; then
+    echo ""
+    echo "[ERROR] Formatting violations found!"
+    echo "Please run 'mvn spotless:apply' to fix them, stage the changes and try again."
+    exit 1
+fi
+
+# 2. Verifica as regras de design do Checkstyle
+if ! mvn checkstyle:check; then
+    echo ""
+    echo "[ERROR] Static analysis (Checkstyle) violations found!"
+    echo "Please fix the issues reported above before committing."
+    exit 1
+fi
+
+echo "[SUCCESS] All checks passed. Proceeding with commit."
+exit

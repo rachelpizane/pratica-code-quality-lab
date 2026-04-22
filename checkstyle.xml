@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <!-- Define que o padrão de caracteres é UTF-8 -->
+    <property name="charset" value="UTF-8"/>
+
+    <!-- Define o nível de severidade para erro (quebra o build) -->
+    <property name="severity" value="error"/>
+
+    <!-- Verifica se o arquivo não é grande demais (Máximo 500 linhas) -->
+    <module name="FileLength">
+        <property name="max" value="500"/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <!-- 1. IMPORTAÇÕES: Organização e Limpeza -->
+        <!-- Impede importar com * (ex: import java.util.*;) -->
+        <module name="AvoidStarImport"/>
+        <!-- Impede imports redundantes -->
+        <module name="RedundantImport"/>
+        <!-- Detecta imports que não estão sendo usados -->
+        <module name="UnusedImports"/>
+
+        <!-- 2. NAMING (Nomenclatura): Garante o padrão Java/Spring -->
+        <!-- Classes e Interfaces: NomeEmCamelCase -->
+        <module name="TypeName"/>
+        <!-- Métodos e Variáveis: nomeEmCamelCase -->
+        <module name="MethodName"/>
+        <!-- Constantes: NOME_EM_MAIUSCULO -->
+        <module name="ConstantName"/>
+        <!-- Pacotes: sempre em letras minúsculas -->
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+        </module>
+
+        <!-- 3. TAMANHO E COMPLEXIDADE: Evita o "Código Espaguete" -->
+        <!-- Limita o tamanho do método (Máximo 60 linhas de código real) -->
+        <module name="MethodLength">
+            <property name="max" value="60"/>
+        </module>
+        <!-- Limita o número de parâmetros (Máximo 7 - mais que isso é má prática) -->
+        <module name="ParameterNumber">
+            <property name="max" value="7"/>
+        </module>
+
+        <!-- 4. CODIFICAÇÃO: Evita bugs lógicos bobos -->
+        <!-- Obriga o uso de chaves { } em if/else/for/while (Evita o bug do Apple SSL) -->
+        <module name="NeedBraces"/>
+        <!-- Impede comparar Strings com == (Obriga o uso de .equals()) -->
+        <module name="StringLiteralEquality"/>
+        <!-- Impede que variáveis de instância sejam públicas (Encapsulamento!) -->
+        <module name="VisibilityModifier"/>
+        <!-- Detecta blocos catch vazios (que "engolem" erros) -->
+        <module name="EmptyCatchBlock"/>
+
+
+
+    </module>
+</module>
