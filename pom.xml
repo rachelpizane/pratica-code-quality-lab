@@ -64,28 +64,6 @@
 					<linkXRef>false</linkXRef>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>com.diffplug.spotless</groupId>
-				<artifactId>spotless-maven-plugin</artifactId>
-				<version>2.43.0</version>
-				<configuration>
-					<java>
-						<!-- 1. Define o motor de formatação (Google Java Format) -->
-						<googleJavaFormat/>
-
-						<!-- 2. Remove imports que não estão sendo usados -->
-						<removeUnusedImports />
-
-						<!-- 3. Organiza a ordem dos imports (padrão Java, então outros) -->
-						<importOrder />
-
-						<!-- 4. Garante que todas as quebras de linha sejam Unix (LF) -->
-						<lineEndings>UNIX</lineEndings>
-					</java>
-				</configuration>
-			</plugin>
-
       <plugin>
         <groupId>com.rudikershaw.gitbuildhook</groupId>
         <artifactId>git-build-hook-maven-plugin</artifactId>
@@ -103,6 +81,26 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>2.43.0</version>
+        <configuration>
+          <java>
+            <!-- 1. Define o motor de formatação (Google Java Format) -->
+            <googleJavaFormat/>
+
+            <!-- 2. Remove imports que não estão sendo usados -->
+            <removeUnusedImports />
+
+            <!-- 3. Organiza a ordem dos imports (padrão Java, então outros) -->
+            <importOrder />
+
+            <!-- 4. Garante que todas as quebras de linha sejam Unix (LF) -->
+            <lineEndings>UNIX</lineEndings>
+          </java>
+        </configuration>
       </plugin>
 		</plugins>
 	</build>
